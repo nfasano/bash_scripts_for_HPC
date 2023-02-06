@@ -14,7 +14,7 @@
   - deck.file - a text file containing the directory where output files should be dumped
   - README.txt - this text file
   
-  
+ 
 **MultiSub.sh Features**
   - 
 <p align="center">
