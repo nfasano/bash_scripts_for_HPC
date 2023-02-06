@@ -6,7 +6,7 @@
 **Skills demonstrated:** Linux shell scripting, High performance computing
 
 
-**Files:**
+**Files in this repository:**
   - MultiSub.sh - a bash script used to submit batches of simulations through the Slurm scheduler on Princeton's HPC cluster. Some features of this file are detailed below
   - epoch1d - executable file for EPOCH particle-in-cell code 
   - input.deck - input file for EPOCH code containing a list of variables, simulation parameters, and variables to be dumped 
