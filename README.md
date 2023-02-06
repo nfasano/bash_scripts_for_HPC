@@ -31,25 +31,32 @@
 
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="375"/> 
-</picture>
-
-<picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/FinalSub.png" alt="drawing" width="375"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="250"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/FinalSub.png" alt="drawing" width="900"/> 
 </picture>
+</p>
 
+
+<p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="250"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="900"/> 
 </picture>
+</p>
 
+<p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="250"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="900"/> 
+</picture>
+</p>
+
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
