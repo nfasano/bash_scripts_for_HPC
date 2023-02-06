@@ -15,17 +15,60 @@
   - README.txt - this text file
   
 **MultiSub.sh Features**
-  - 
-<p align="center">
-<picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotOne.png" alt="drawing" width="900"/> 
-</picture>
-<!-- </p>
-<p align="center"> -->
-<picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotTwo.png" alt="drawing" width="900"/> 
-</picture>
-</p>
+
+```Shell
+#!/bin/bash
+
+# Nicholas Fasano
+# Last Edit: 01/27/2023
+# Shell script for submitting large batches of simulations
+# on the Princeton HPC cluster through the SLURM scheduler
+
+#------------ Working Directory (Extra slashes to meet sed requirements)
+DIRECTORY="\/tigress\/nfasano\/epoch\/Test"
+
+# Simulation Set-up
+CODE="epoch1d"      # relative path to code executable file
+SIMSTART=1          # Sim# to begin with
+SUBMIT=-1           # SUBMIT > 0 --> submit simulations to SLURM schedule
+
+# Inputs for SLURM Submit file
+# VARNUM < 0: Enter 1 element to each list to keep parameters fixed for all simulations
+# VARNUM > 3: Enter an array of elements to specify parameters for all simulations (numSims == LEN(TIME) == LEN(PROC) == LEN(NODE))
+# VARNUM = 1: Enter an array of elements to specify parameters only for VAR1 (LEN(VAR1) == LEN(TIME) == LEN(PROC) == LEN(NODE))
+# VARNUM = 2: Enter an array of elements to specify parameters only for VAR2 (LEN(VAR2) == LEN(TIME) == LEN(PROC) == LEN(NODE))
+# VARNUM = 3: Enter an array of elements to specify parameters only for VAR3 (LEN(VAR3) == LEN(TIME) == LEN(PROC) == LEN(NODE))
+SUBMITFILE=sub
+VARNUM=1
+TIME=( "01:00:00" "01:30:00" "02:00:00" "04:00:00" )    # Max Simulation Time "hr:min:sec"
+PROC=( 1 1 1 1 )             # Number of Processors
+NODE=( 1 1 1 1 )             # Number of Nodes
+
+#------------ Parameters for input file
+INPUTFILE=input.deck
+# Name of variable to update in INPUTFILE 
+# INPUTFILE must contain the text NVAR# = 0 else an error is raised
+# Put "" if you dont want to update variable and then leave VAR# empty
+NVAR1="No"
+NVAR2="ao"
+NVAR3="Theta"
+
+# Var1 and Var2 Values are set explicitly
+VAR1=( 20 40 60 80 )
+VAR2=( 10 20 30 40 50 )
+
+# Var3 is computed giving initial value, increment, and length
+VAR3[0]=10
+DVAR3=5
+LEN3=5
+for i in $(seq 1 $((${LEN3}-1)))
+do
+    VAR3[$i]=$(echo "scale=10;${VAR3[$i-1]}+${DVAR3}" | bc)
+done
+
+# Outputs of simulation
+VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + species" )
+```
 
 <p align="center">
 <picture>
