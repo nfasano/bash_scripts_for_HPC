@@ -19,7 +19,18 @@
   - 
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShot.png" alt="drawing" width="900"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotOne.png" alt="drawing" width="900"/> 
+</picture>
+</p>
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotTwo.png" alt="drawing" width="900"/> 
+</picture>
+</p>
+
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
@@ -29,11 +40,7 @@
 </picture>
 </p>
 
-<p align="center">
-<picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="900"/> 
-</picture>
-</p>
+
 
 <p align="center">
 <picture>
