@@ -1,0 +1,219 @@
+# Input file Epoch1D for High harmonic Generation
+# Written By Nicholas Fasano
+# Last Updated: 3/20/2019
+
+#------------------ Constants Block --------------#
+begin:constant
+	# Lab Frame Inputs 
+	Lambda = 0.8*micron 	  	# Wavelength [m]
+        No = 0                          # Normalized Laser Amp.
+        ao = 0
+        S = No/ao
+	Theta = 0*(pi/180)		# Incident Angle [rad]
+	Tau = 4*(Lambda/c)	  	# FWHM [s]
+	CEP = 0*(pi/180)			# Phase [rad] (0 == Cosine)
+	CFL = 0.95				# CFL number
+
+	Pol_1 = 0*(pi/180)			# Polarization degree
+	Pol_2 = 90*(pi/180)			# Polarisation degree (0 == p, pi/2 == s)		  
+	PowFrac_2 = 0
+	CEP_12 = 90*(pi/180)			# phase difference between 1st and 2nd laser
+	
+
+	GL = 0.0*Lambda	   	        # Gradient Length [m] (exp(-x/GL))
+	Temp = 0			# Temperature of Plasma [eV]
+	Pt = 1.0*Lambda		# Plasma Thickness [m]
+	Vt = 0.25*Lambda		# Distance from plasma to Boundary [m]
+	CoulombLog = 0			# Coulomb Logarithm for Collison Block
+
+	IonCharge = 8			# Charge of Ion
+	Mi = 15.999*1836*1e20		# Mass of ion over electron mass
+
+	# Simulation Control Inputs
+	CPW = 200	     	     	# # Cells per fundamental wavelength
+	PPC = 0		# Particles Per Cell 
+	Nt = 0.001	  	# # of output files
+	ID = 0			# # of tracked electrons
+	Sd = 2.5			# Number of Wavelengths from xmin to plasma
+	
+	Time1 = -1.00			# Scale beg;end time of data collecting 
+	Time2 = 1.00	  		# (To + Xo/c + (time1;time2)(Lambda/c)
+        Time3 = 1.50			# Simulation End Time Scaling Parameter
+					# tend = 2*TO + (((XO+XL)/c))Time3
+
+	# Laser Calculations
+	Omega = (2*pi*c)/Lambda		   # Frequency [rad/s]
+	To    =  Tau*2.5		   # Time shift [s]
+	Phase = (-Omega*To + CEP + pi/2)   # Laser Phase [rad]		
+	# S    = No/ao	     		   # Similarity parameter
+	Intensity = 1.3683e6*(ao/Lambda)^2 # Intensity [W/cm2] 	
+
+	# Space Simulation Calculations
+	Xo   = Sd*Tau*1e9
+	XL   = abs(GL*loge(0.01/No))	# Gradient Length [m]
+	Xf   = Xo + XL + Pt 		# Plasma End    [m]
+	Lp   = Xf - Xo			# Plasma Length [m]
+	Xmin = 0.0			# Left Boundary [m]
+	Xmax = Xf + Vt  		# Rite Boundary [m]
+	L    = Xmax - Xmin		# Sim. Length   [m]
+
+	# Plasma Density Calculation
+	Nc = critical(Omega)		# Critical Plasma Density [#/m3]
+	Nd = No*Nc			# Max Plasma Density 	  [#/m3]
+
+	# Compute Simulation Parameters
+	NGP    = ceil(L/Lambda)*CPW	# # of Grid Points
+	Dx     = L/NGP			# Cell Size [m/grid point]
+	Npart  = ceil(PPC*(Lp/Dx))	# Number of Particles
+	Tmin   = To + Time1*(Xo/c)	# Start Dump Time [s]
+	Tmax   = To + Time2*(Xo/c)     	# Max Time [s]
+	Tend   = Sd*To 	# Sim End Time [s]
+	Dt     = (Tmax - Tmin)/Nt	        # Time step between dumps [s]
+
+	# ------- Transform to Boosted Frame --------- #
+ 
+        # Define Boosted Frame
+	Vo = c*sin(Theta)		# Moving Frame Speed
+	Gamma = 1/cos(Theta)		# Rel. Gamma Factor
+	NoBst = No*Gamma
+
+	# Laser Inputs Boosted Frame
+	OmegaBst = Omega*cos(Theta)
+	LambdaBst = (2*pi*c)/OmegaBst
+	IntensityBst = Intensity/Gamma^2
+ 	ToBst = To*Gamma
+	TauBst = Tau*Gamma
+	PhaseBst = -(OmegaBst*ToBst) + CEP +  pi/2
+	
+	# Space Simulation Boosted Frame
+	XminBst = 0	
+	XmaxBst = Xmax * Gamma
+	LBst    = XmaxBst - XminBst		
+	XoBst   = Xo * Gamma
+	GLBst = GL*Gamma	
+	XLBst = abs(GLBst*loge(0.01/NoBst))	
+	XfBst   = XoBst + GLBst*loge(2) + Lp
+	LpBst   = XfBst - XoBst			
+
+	# Plasma Inputs
+	NcBst = critical(OmegaBst)
+	NdBst = Nd*Gamma 
+	
+	# Compute Simulation Parameters
+	CPWBst	      = CPW				# CPWBst == CPW
+	NGPBst        = ceil(LBst/LambdaBst)*CPWBst	# NGPBst == NGP
+	PPCBst        = PPC*(Gamma^3)			# PBst   == P*Gamma^3
+	DxBst         = LBst/NGPBst		        # DxBst  == Gamma*Dx
+	NpartBst      = ceil(PPCBst*(LpBst/DxBst))	# NpartBst == NPART
+	TendBst	      = Tend*Gamma			# Sim End Time [s]
+	TmaxBst       = Tmax*Gamma			# End Dump Time [s]
+	TminBst       = Tmin*Gamma			# Start Dump Time [s]
+	DtBst         = (TmaxBst - TminBst)/Nt		# DtBst = Gamma*Dt
+end:constant
+
+#------------------ Control Block ----------------#
+begin:control
+	# grid points
+	nx = NGPBst
+
+	# number of particles
+	npart = NpartBst
+	
+	# time domain 
+	t_end = TendBst
+
+	# spatial domain 	
+	x_min = XminBst
+	x_max = XmaxBst
+
+	# CFL number
+	dt_multiplier = CFL
+end:control
+
+#-------------------- Boundary Block ---------------#
+begin:boundaries
+	bc_x_min = simple_laser
+	bc_x_max = simple_outflow
+end:boundaries
+
+#------------------- 1st Laser Block ------------------#
+begin:laser
+	boundary	= x_min 
+	intensity_w_cm2 = (1 - PowFrac_2)*IntensityBst
+	omega 		= OmegaBst
+	t_profile 	= gauss(time,ToBst,TauBst/1.6651)
+	t_start   	= start
+	t_end     	= ToBst*2
+	phase           = PhaseBst
+	pol_angle = Pol_1
+end:laser
+
+#------------------- 2nd Laser Block ------------------#
+begin:laser
+	boundary	= x_min 
+	intensity_w_cm2 = PowFrac_2*IntensityBst
+	omega 		= OmegaBst
+	t_profile 	= gauss(time,ToBst,TauBst/1.6651)
+	t_start   	= start
+	t_end     	= ToBst*2
+	phase           = PhaseBst + CEP_12
+	pol_angle = Pol_2
+end:laser
+
+
+#------------------- Electron Block ---------------#
+
+begin:species
+	name    = Electron
+	charge  = -1.0
+	mass    = 1.0
+	density = 0
+	density = if(x gt XoBst and x lt (XoBst+XLBst), NdBst*exp((x-XoBst-XLBst)/GLBst),density(Electron))
+	density = if(x gt (XoBst+XLBst), NdBst, density(Electron)) 
+	density = if(x gt XfBst, 0, density(Electron))
+	density_min = 0.01*NcBst
+	temp    = Temp
+	npart   = NpartBst
+	drift_y = -Gamma*me*Vo
+end:species
+
+#------------------ Ion Block -----------------#
+begin:species
+	name:Ion
+	charge  = IonCharge
+	mass    = Mi
+	density = density(Electron)/IonCharge
+	npart   = NpartBst
+	temp    = Temp
+	drift_y = -Gamma*me*Mi*Vo
+	immobile = F
+end:species
+
+#---------------- Collisional Block -----------#
+begin:collisions
+	use_collisions = F
+	coulomb_log    = CoulombLog
+	collide        = all
+	collide        = Electron Electron off
+	collide        = Ion Ion off
+end:collisions
+
+#---------------- Subset Block ----------------#
+#begin:subset
+#	name = tracer
+#	include_species = Electron
+#	id_max = if(ID gt NpartBst, NpartBst, ID)
+#end:subset
+
+#---------------- Output Blocks ------------------#
+begin:output
+	# number time steps between dumps
+	time_start = TminBst
+	time_stop   = TmaxBst
+	dt_snapshot = DtBst
+ 
+	# number of dt_snapshot between full dump
+	full_dump_every = 1
+
+        # OUTPUT_VARIABLES
+end:output
