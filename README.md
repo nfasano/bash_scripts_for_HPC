@@ -14,7 +14,6 @@
   - deck.file - a text file containing the directory where output files should be dumped
   - README.txt - this text file
   
- 
 **MultiSub.sh Features**
   - 
 <p align="center">
@@ -40,8 +39,6 @@
 </picture>
 </p>
 
-
-
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="900"/> 
@@ -54,22 +51,19 @@
 </picture>
 </p>
 
-
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="900"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="800"/> 
 </picture>
 </p>
-
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="900"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="800"/> 
 </picture>
 </p>
-
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="900"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="800"/> 
 </picture>
 </p>
 
