@@ -25,7 +25,13 @@
 
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo.png" alt="drawing" width="900"/> 
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_Directories.png" alt="drawing" width="900"/> 
+</picture>
+</p>
+
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
