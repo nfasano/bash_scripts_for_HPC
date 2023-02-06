@@ -20,8 +20,8 @@
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotOne.png" alt="drawing" width="900"/> 
 </picture>
-</p>
-<p align="center">
+<!-- </p>
+<p align="center"> -->
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/MultiSubScreenShotTwo.png" alt="drawing" width="900"/> 
 </picture>
