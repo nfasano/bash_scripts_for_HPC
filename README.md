@@ -60,14 +60,14 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 ```
 
 ### General Usage
-####  Initially the directory \Test only contains 5 files, including the code exeuctable (epoch1d), the input.deck file, the sub file, a deck.file file which is given as an input when executing the code, and the MultiSub.sh bash script for generating and submitting the directories. After executing the MultiSub.sh file, the user is presented with the variables they are inputing and the variables they are outputting during the simulations execution. Warnings and potential errors are also displayed at this time.
+####  Initially the directory \Test contains 5 files, (epoch1d, input.deck, sub, deck.file, and Multisub.sh). After executing the MultiSub.sh script, the user is presented with the variables they are inputing and the variables they are outputting during the simulations execution. Warnings and potential errors are also displayed at this time.
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
-####  Now the \Test directory contains 100 directories, where each directory contains the files necessary for executing the simulation and each input.deck and sub file has been modified according to options specified in MultiSub.sh script.
+####  Now the \Test directory contains 100 directories, where each directory contains the files necessary for executing the simulation. All input.deck and sub files were modified according to the options specified in the MultiSub.sh script.
 
 <p align="center">
 <picture>
@@ -75,7 +75,7 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 </picture>
 </p>
 
-####  The next two images show the before and after of the sub file. 
+####  The next two images show the before and after of the sub file
 
 #### sub file in \Test
 <p align="center">
@@ -91,7 +91,7 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 </picture>
 </p>
 
-### Other features
+### Other Features
 
 #### Script alerts the user if they are about to overwrite files and allows them to abort or continue the process
 <p align="center">
