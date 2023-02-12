@@ -14,7 +14,7 @@
   - deck.file - a text file containing the directory where output files should be dumped
   - README.txt - this text file
   
-**MultiSub.sh Features**
+### Header for the MultiSub.sh script
 
 ```Shell
 #!/bin/bash
@@ -27,7 +27,7 @@ CODE="epoch1d"      # relative path to code executable file
 SIMSTART=1          # Sim# to begin with
 SUBMIT=-1           # SUBMIT > 0 --> submit simulations to SLURM schedule
 
-# Inputs for SLURM Submit file
+# Inputs for Slurm submit file
 # VARNUM < 0: Enter 1 element to each list to keep parameters fixed for all simulations
 # VARNUM > 3: Enter an array of elements to specify parameters for all simulations (numSims == LEN(TIME) == LEN(PROC) == LEN(NODE))
 # VARNUM = #: Enter an array of elements to specify parameters only for VAR# (LEN(VAR#) == LEN(TIME) == LEN(PROC) == LEN(NODE)); # = {1, 2, or 3}
@@ -59,11 +59,15 @@ done
 VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + species" )
 ```
 
+### General Usage
+####  Initially the directory \Test only contains 5 files, including the code exeuctable (epoch1d), the input.deck file, the sub file, a deck.file file which is given as an input when executing the code, and the MultiSub.sh bash script for generating and submitting the directories. After executing the MultiSub.sh file, the user is presented with the variables they are inputing and the variables they are outputting during the simulations execution. Warnings and potential errors are also displayed at this time.
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="900"/> 
 </picture>
 </p>
+
+####  Now the \Test directory contains 100 directories, where each directory contains the files necessary for executing the simulation and each input.deck and sub file has been modified according to options specified in MultiSub.sh script.
 
 <p align="center">
 <picture>
@@ -71,28 +75,39 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 </picture>
 </p>
 
+####  The next two images show the before and after of the sub file. 
+
+#### sub file in \Test
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
+#### sub file in \Test\Sim001_No_20_ao_10_Theta_10
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/FinalSub.png" alt="drawing" width="900"/> 
 </picture>
 </p>
 
+### Other features
+
+#### Script alerts the user if they are about to overwrite files and allows them to abort or continue the process
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="800"/> 
 </picture>
 </p>
+
+#### ERRORs are triggered if the user enters information that is inconsistent (e.g. missing values from TIME array)
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="800"/> 
 </picture>
 </p>
+
+#### Example of simulations actually getting submitted
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="800"/> 
