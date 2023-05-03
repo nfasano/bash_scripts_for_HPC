@@ -15,7 +15,7 @@
     - deck.file - a text file containing the directory where output files should be dumped
   - README.txt - this text file
   
-### Header for the MultiSub.sh script
+### Header for the MultiSub.sh script illustrating some of the core features
 
 ```Shell
 #!/bin/bash
@@ -76,7 +76,7 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 </picture>
 </p>
 
-####  The next two images show the before and after of the sub file
+####  The next two images show the original sub file and the modified sub file present in one of the created directories 
 
 #### sub file in \Test
 <p align="center">
