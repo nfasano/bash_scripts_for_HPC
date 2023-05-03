@@ -8,10 +8,11 @@
 
 **Files in this repository:**
   - MultiSub.sh - a bash script used to submit batches of simulations through the Slurm scheduler on Princeton's HPC cluster. Some features of this file are detailed below
-  - epoch1d - executable file for EPOCH particle-in-cell code 
-  - input.deck - input file for EPOCH code containing a list of variables, simulation parameters, and variables to be dumped 
   - sub - a bash script used to submit a job through the Slurm scheduler 
-  - deck.file - a text file containing the directory where output files should be dumped
+  - Executable and input files to run simulations (used to demonstrate the MultiSub.sh functionality)  
+    - epoch1d - executable file for EPOCH particle-in-cell code  
+    - input.deck - input file for EPOCH code containing a list of variables, simulation parameters, and variables to be dumped    
+    - deck.file - a text file containing the directory where output files should be dumped
   - README.txt - this text file
   
 ### Header for the MultiSub.sh script
