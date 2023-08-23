@@ -1,4 +1,4 @@
-# Bash Script High Performance Computing Cluster
+# Bash Script High-Performance Computing (HPC) Cluster
 
 
 **Description:** Wrote a bash script that submits batches of simulations with different parameters and requested computational resources to the Slurm scheduler (a commonly used cluster management and job scheduling system for HPC clusters). This script provides an organized framework for managing massively parallel simulations and terabyte-scale datasets and has been adopted by successive graduate students who use the HPC cluster in a myriad of ways.
