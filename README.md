@@ -63,31 +63,31 @@ VAROUT=( "grid = always" "ey = always" "ex = always" "number_density = always + 
 ### General Usage
 ####  Initially the directory \Test contains 5 files, (epoch1d, input.deck, sub, deck.file, and Multisub.sh). After executing the MultiSub.sh script, the user is presented with the variables they are inputing and the variables they are outputting during the simulations execution. Warnings and potential errors are also displayed at this time.
 
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_NoDirectories.png" alt="drawing" width="100%"/> </picture> 
 
 
 ####  Now the \Test directory contains 100 directories, where each directory contains the files necessary for executing the simulation. All input.deck and sub files were modified according to the options specified in the MultiSub.sh script.
 
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_Directories.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialDemo_Directories.png" alt="drawing" width="100%"/> </picture> 
 
 ####  The next two images show the original sub file and the modified sub file present in one of the created directories 
 
 #### sub file in \Test
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/InitialSub.png" alt="drawing" width="100%"/> </picture> 
 
 
 #### sub file in \Test\Sim001_No_20_ao_10_Theta_10
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/FinalSub.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/FinalSub.png" alt="drawing" width="100%"/> </picture> 
 
 ### Other Features
 
 #### Script alerts the user if they are about to overwrite files and allows them to abort or continue the process
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/OverwritingDirectory.png" alt="drawing" width="100%"/> </picture> 
 
 #### ERRORs are triggered if the user enters information that is inconsistent (e.g. missing values from TIME array)
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/ErrorExample.png" alt="drawing" width="100%"/> </picture> 
 
 
 #### Example of simulations actually getting submitted
-<img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="100%"/> 
+<picture> <img src="https://github.com/nfasano/bashScriptsHPC/blob/main/readMeImages/SubmissionSuccess.png" alt="drawing" width="100%"/> </picture> 
   
